@@ -1,0 +1,34 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Oracle Enterprise Manager</title>
+<style type="text/css">
+  body, img {margin:0;padding:0;}
+  #clickTarget {position:absolute;width:100%;height:100%;}
+</style>
+<script type="text/javascript">
+  var nextImage = 2;
+  function showNextImage(el) {
+    el.src="images/" + (nextImage++) + ".png";
+  }
+  function showPreviousImage(el) {
+    if (nextImage > 2) {
+      el.src="images/" + (nextImage-2) + ".png";
+      nextImage--;
+    }
+  }
+</script>
+</head>
+<body style="overflow-y:hidden;background-color:#000;text-align:center" onKeyPress="var el=document.getElementById('theImg'); var kc=event.keyCode; if(kc==33 || kc==37) {showPreviousImage(el); return false} else if(kc==34 || kc==39) {showNextImage(el); return false} else if(event.charCode==32) {if(event.shiftKey) {showPreviousImage(el)} else {showNextImage(el)} return false} else if(kc==38 || kc==40) {return false}" onLoad="this.focus()">
+  <div id="clickTarget" onClick="if(event.button<2) {showNextImage(document.getElementById('theImg'))}">
+  </div>
+  <img id="theImg" src="images/1.png" width="100%" border="0" />
+  <!--
+  <style id="clickTargetStyle" type="text/css">
+    div#clickTarget {top:50px;left:100px;width:100px;height:50px;}
+    div#clickTarget:hover {background-color:#ffaaaa;opacity:.5}
+  </style>
+  document.getElementById('clickTargetStyle').innerHTML = 'div#clickTarget{} div#clickTarget:hover{}'">
+  -->
+</body>
+</html>
